@@ -24,7 +24,7 @@ class Network(object):
 
     def SGD(self, training_data, epochs, mini_batch_size, eta, modelName, test_data=None):
         if(test_data):
-            n_test = len(test_data)
+            n_test = len(test_data[1])
             hightestEpoch = (0, 0)
         n = len(training_data)
         for j in range(epochs):
@@ -93,9 +93,9 @@ class Network(object):
         return output_activations - y
 
     def evaluate(self, test_data):
-        test_results = [(np.argmax(self.feedforward(x)), y)
-                        for x, y in test_data]
-        return sum(int(x == y) for x, y in test_results)
+        data,tag = test_data
+        test_results = np.argmax(self.feedforward(data),axis=0)
+        return sum(int(x == y) for x, y in zip(test_results,tag))
 
 
 def sigmoid(z):
