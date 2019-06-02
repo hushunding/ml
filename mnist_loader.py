@@ -23,9 +23,9 @@ def load_data_wrapper2(path):
     training_data = list(zip(training_inputs, training_results))
     # validation_inputs = [np.reshape(x, (784, 1)) for x in test_images]
     # validation_data = zip(validation_inputs, va_d[1])
-    test_inputs = np.concatenate([np.reshape(x, (784, 1)) for x in test_images], axis=1)
+    test_inputs = [np.reshape(x, (784, 1)) for x in test_images]# np.concatenate([np.reshape(x, (784, 1)) for x in test_images], axis=1)
     test_results = [vectorized_result3(y) for y in test_labels]
-    test_data = (test_inputs, test_results)
+    test_data = list(zip(test_inputs, test_results))
 
     return training_data, test_data
 

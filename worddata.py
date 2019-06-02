@@ -42,7 +42,7 @@ def loadCharsData(trainSize, testSize):
             for i in range(size):
                 x = list(df.read(784))
                 t = tf.read(1).decode()
-                input = np.reshape(x, (784, 1))/255.0
+                input = -np.reshape(x, (784, 1))/255.0+1
                 if ext == 'training':
                     result = vectorized_result(t)
                 else:
