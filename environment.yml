@@ -1,0 +1,10 @@
+dependencies:
+  - matplotlib
+  - seaborn
+  - numpy
+  - tensorflow
+  - pandas
+  - cython
+  - pip
+  - pip:
+      - cffi_magic
